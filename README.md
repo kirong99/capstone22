@@ -8,6 +8,21 @@
     프로젝트 소개 사이트 : https://github.com/das0166/frontnewbe
 
 
+## 2022.09.14 [3주차]
++ **로고 제작**  
+![로고](./img/logo.png)
++ 작품 기술서 작성 완료
++ React 학습
+    + Router-Dom 이용하여 페이지 이동
+    + useState
++ git fork, pull-request, fetch 학습
+    + 원하는 저장소 fork 후 fork한 repository clone
+    + git remote add upstream fork했던 원격 저장소 주소
+    + 커밋 후 pull-request
+    + 원격 저장소에 변경사항 있을시에
+    + git fetch upstream
+    + git merge upstream/main 또는 upstream/master
+
 ## 2022.09.07 [2주차]
 + **작품 기술서 제작**
     + 작품개요 작성
