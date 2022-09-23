@@ -7,7 +7,86 @@
     백엔드 없이 리액트로 일정관리 웹 어플리케이션을 만들고자 함.
     프로젝트 소개 사이트 : https://github.com/das0166/frontnewbe
 
-
+## 2022.09.21
++ 개발 시작
++ 이번주 할 일 분배(일요일까지)
+    + 회원가입 폼, 캘린더 폼 라이브러리 사용
++ 회원가입 폼 개발
+    + **react-hook-form** 라이브러리 사용
++ react-hook-form
+    + register 함수를 활용하여 여러 input 관리
+    ```jsx
+    <input
+        id="name"
+        type="text"
+        placeholder="홍길동"
+        {...register("name", {
+        required: "이름은 필수 입력입니다.",
+        })}
+    />
+    ```
+    + handleSubmit : 함수에 data라는 인자를 받아 데이터를 출력해줌
+    ```jsx
+    const onSubmit = data => console.log(data);
+    <form onSubmit={handleSubmit(onSubmit)}>
+    ...
+    </form>
+    ```
+    + 뛰어난 유효성 검사
+    ```jsx
+    <input
+        id="email"
+        type="text"
+        placeholder="test@email.com"
+        {...register("email", {
+        required: "이메일은 필수 입력입니다.",
+        pattern: {
+        value: /\S+@\S+\.\S+/,
+        message: "이메일 형식에 맞지 않습니다.",
+        },
+        })}
+    />
+    ```
++ react-router-dom 연결 및 학습
+    + 라우팅: **웹에서 사용자가 요청한 URL에 따라 알맞는 페이지를 보여주는 것**
+    + SPA : **한 개의 페이지로 이루어진 애플리케이션**
+    브라우저의 History API를 사용하여 브라우저의 주소창의 값만 변경하고 라우팅 설정에 따라 또 다른 페이지를 보여주는 것
+    + 라이브러리 설치
+    ```jsx
+    npm install react-router-dom
+    ```
+    + index.js에 BrowserRouter 컴포넌트 사용하여 적용
+    ```javascript
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+    );
+    ```
+    + 메인 페이지, 고정 시킬 컴포넌트, 이동할 페이지 등에 주소를 정하고 link to를 이용하여 페이지 이동
+    + App.js
+    ```jsx
+    function App() {
+    return(
+    <Routes>
+      <Route element={<Header />}>
+        <Route index element={<Todo />}/>
+        <Route path = "/join" element={<Join />}/>
+      </Route>
+    </Routes>
+    )}
+    ```
+    + header.js
+    ```jsx
+    <div className='login'>
+        <Link to="/join">
+            <img className='login' src={login} alt='login'/>
+        </Link>
+    </div>
+    ```
++ 컴포넌트 분리
+    + 공통된 부분 분리
 ## 2022.09.14 [3주차]
 + **로고 제작**  
 ![로고](./img/logo.png)
